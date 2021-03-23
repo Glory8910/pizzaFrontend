@@ -1,0 +1,118 @@
+
+*{
+    margin: 0;
+    box-sizing:border-box;
+    text-decoration: none;
+    list-style: none;
+    }
+    
+    body{
+     
+        font-family:sans-serif;
+    }
+    nav{
+        width: 100%;
+        height: 80px;
+        background-color:rgb(243, 57, 82);
+        color:whitesmoke;
+    }
+    nav>label{
+        font-size: 35px;
+        line-height: 80px;
+        padding:0px 50px;
+        font-family: montserrat;
+        
+    }
+    nav ul{
+        float:right;
+        margin-right: 5px;
+    }
+    nav ul li{
+        display: inline-block;
+        line-height:80px;
+        margin:0 5px;
+        
+    }
+    .anch{
+        font-size:20px;
+       
+        color:white;
+        padding:7px 12px;
+        border-radius: 3px;
+        text-transform: uppercase;
+       
+    }
+    .anch:hover{
+        background-color: rgb(50, 140, 243);
+        color:white;
+        transition: 0.5s;
+        text-decoration: none;
+    }
+     .checkicon{
+        float: right;
+        line-height: 80px;
+        margin-right: 5px;
+        cursor: pointer;
+        display:none;
+    
+    }
+    #check{
+    display:none;
+    }
+    @media(max-width:950px){
+        nav>label{
+            font-size: 30px;
+            padding: 0 25px;
+            
+        }
+       nav>li{
+            color:whitesmoke;
+        }
+        .anch{
+            font-size:18px;
+            color:rgb(226, 222, 222)
+                 
+        }
+    }
+    @media(max-width:858px){
+       .checkicon{
+           display: block;
+       }
+        nav>ul{
+           position:absolute;
+           width:100%;
+           height: 30vh;
+            top:80px;
+            left:-100%;
+            transition: all 0.5s;
+            background:rgb(236, 229, 229);
+            text-align: center;   
+            z-index: 8;
+        }
+        nav ul li {
+            display: block;
+          margin: 20px 0;
+          line-height: 30px;
+          color:blueviolet;
+                 
+        }
+         .anch{
+            font-size:20px;
+            color:rgb(113, 162, 218);   
+        }
+        .anch:hover{
+            background:none;
+            font-size: xx-large;
+            color:rgb(231, 224, 224);
+        }
+        #check:checked~ul{
+            left: 0;
+        } 
+    }
+    @media(max-width:400px){
+        nav>label{
+            font-size: 25px;
+            padding: 0 10px;
+            
+        }
+    }

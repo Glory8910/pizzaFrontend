@@ -1,0 +1,99 @@
+.space{
+    padding: 4px;
+}
+*{
+    margin: 0;
+    box-sizing:border-box;
+    text-decoration: none;
+    list-style: none;
+    }
+.space1{
+    padding: 7px;
+}
+
+.bodering{
+ 
+    align-content: center;
+}
+h1{
+   text-align: center;
+}
+.imagec{
+    max-height:300px;
+    max-width:300px;
+}
+
+.imagec1{
+   max-height:180px;
+    max-width:200px;
+}
+.imagec2{
+    max-height:150px;
+    max-width:180px;
+}
+
+.ingre{
+    position: absolute;
+    margin-top: -50px;
+}
+.ingre1{
+    position: absolute;
+    margin-top: -20px;
+    margin-left: 120px;
+
+}
+.ingre2{
+    position: absolute;
+    margin-top: 100px;
+    margin-left: 80px;
+}
+body{
+    margin:0;
+}
+.zhigh{
+z-index: 1;
+}
+.zhigh1{
+    z-index: 2;
+    }
+.z1{
+    z-index: 4;
+    }
+    .base{
+    position: absolute;
+        
+    margin-top: -30px;
+
+    }
+    .gridobj{
+        visibility:hidden;
+    }
+    .right{
+        float:right;
+        
+       
+    }
+    .centerplace{
+        align-items: center;
+    }
+.bgc{
+    background: url("https://www.bing.com/th?id=OIP.of0DlMccXur6UPa3xJyIwQHaEK&w=212&h=110&c=8&rs=1&qlt=90&dpr=1.25&pid=3.1&rm=2") no-repeat center center fixed; 
+    background-size: cover;
+  
+}
+.bgg{
+    background:rgb(199, 252, 252);
+
+}
+h4{
+  text-align: center;
+}
+.lis{
+    height: 40px;
+    background-color: rgb(236, 239, 240);
+}
+.cont{
+    width:100vw;
+    height:100vh;
+    margin:0;
+}
