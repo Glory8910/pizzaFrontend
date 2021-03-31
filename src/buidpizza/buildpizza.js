@@ -56,7 +56,7 @@ export default function Buildpizza(props) {
 
 
 
-
+    
 
 
 
@@ -97,20 +97,20 @@ export default function Buildpizza(props) {
 
         let idd = await axios.post("https://pizzabytes.herokuapp.com/users/razorid", { email: userdet.user.userdetails, amountpayable: pricetag })
             .then((res) => {
-               
+
                 return res.data.transactionId
 
             })
             .catch((error) => {
                 console.log(error)
             })
-     
+
         let result = await showrazorpay();
 
         if (!result) {
             alert('connection interrupted')
         }
-        
+
         var options = {
             "key": "rzp_test_YIuQovhOdzMDxK",
             "amount": (pricetag * 100),
@@ -150,7 +150,7 @@ export default function Buildpizza(props) {
 
 
         setpayment(true);
-    
+
     }
 
 
@@ -164,20 +164,22 @@ export default function Buildpizza(props) {
     }
 
 
-   
+
 
     return (
 
 
         <>
 
-
-
-
-
-            <div className="row cont" >
             <Navbar />
-                <div className="col-sm-12 col-lg-4 bgc ">
+            <div className="row cont" >
+
+
+
+
+
+
+                <div className="col-sm-12 col-md-4 bgc topp ">
 
 
 
@@ -342,9 +344,9 @@ export default function Buildpizza(props) {
 
 
 
-                <div className="col-sm-12 col-lg-8 bgg containerbuild">
+                <div className="col-sm-12 col-md-8 bgg containerbuild bott">
 
-                    <h1>Build your pizza</h1>
+                    <h4>Build your pizza</h4>
 
 
 
@@ -361,247 +363,71 @@ export default function Buildpizza(props) {
                           </Button>
                         </div>
                     </Alert>
-                    <div className="row">
-                        <div className="col-4 bodering"  >
-                            <h4>Base</h4>
 
-                            <input type="radio" id="Hand toasted" name="baseselector" onChange={(e) => {
 
 
-                          
-                                if (e.target.checked) {
+                        <div className="col-12 "  >
+                            <h5 className="drophead col-4">Base</h5>
 
 
-                                    setItems({ ...items, BaseSelected: e.target.id })
+                            <select name="base" id="base"  className="col-6"  onChange={(e) => {
 
 
-                                }
-                                else if (e.target.checked === false) {
-                             
-                                    setItems({
-                                        ...items, BaseSelected: ""
-                                    })
 
-                                }
 
-                            }} autocomplete="off" />
-                            <label className="space" for="baseselector">Hand toasted</label>
-                            <br />
+                                setItems({ ...items, BaseSelected: e.target.value })
 
-                            <input type="radio" id="Wheat crust" onChange={(e) => {
 
-                                if (e.target.checked) {
 
+                            }}>
+                                <option value="Hand toasted">Hand toasted</option>
+                                <option value="Wheat crust">Wheat crust</option>
+                                <option value="Deep dish">Deep dish</option>
+                                <option value="Cheese burst">Cheese burst</option>
+                                <option value="Fresh pan">Fresh pan</option>
 
-                                    setItems({ ...items, BaseSelected: e.target.id })
+                            </select>
 
 
-                                }
-                                else if (e.target.checked === false) {
-                                  
-                                    setItems({
-                                        ...items, BaseSelected: ""
-                                    })
 
-                                }
-
-                            }} name="baseselector" autocomplete="off" />
-                            <label className="space" for="baseselector">Wheat crust</label>
-                            <br />
-
-                            <input type="radio" className="space" id="Fresh pan" onChange={(e) => {
-
-                                if (e.target.checked) {
-
-
-                                    setItems({ ...items, BaseSelected: e.target.id })
-
-
-                                }
-                                else if (e.target.checked === false) {
-                             
-                                    setItems({
-                                        ...items, BaseSelected: ""
-                                    })
-
-                                }
-
-                            }} name="baseselector" autocomplete="off" />
-                            <label className="space" for="baseselector">Fresh pan</label>
-                            <br />
-
-
-
-                            <input type="radio" id="Deep dish" onChange={(e) => {
-
-                            
-                                if (e.target.checked) {
-
-
-                                    setItems({ ...items, BaseSelected: e.target.id })
-
-
-                                }
-                                else if (e.target.checked === false) {
-                                   
-                                    setItems({
-                                        ...items, BaseSelected: ""
-                                    })
-
-                                }
-
-                            }} name="baseselector" autocomplete="off" />
-                            <label className="space" for="baseselector">Deep dish</label>
-                            <br />
-
-
-
-                            <input type="radio" id="Cheese burst" onChange={(e) => {
-
-                                if (e.target.checked) {
-
-
-                                    setItems({ ...items, BaseSelected: e.target.id })
-
-
-                                }
-                                else if (e.target.checked === false) {
-                             
-                                    setItems({
-                                        ...items, BaseSelected: ""
-                                    })
-
-                                }
-
-                            }} name="baseselector" autocomplete="off" />
-                            <label className="space" for="baseselector">Cheese burst</label>
-
-                        </div>
-
-
-
-
-
-
-
-
-
-
-                        <div className="col-4" >
-                            <h4>Sauce</h4>
-
-
-                            <input type="radio" id="Tomato Sauce" name="sauseSelector" onChange={(e) => {
-
-                 
-                                if (e.target.checked) {
-
-
-                                    setItems({ ...items, SauceSelected: e.target.id })
-
-
-                                }
-                                else if (e.target.checked === false) {
-                          
-                                    setItems({
-                                        ...items, SauceSelected: ""
-                                    })
-
-                                }
-
-                            }} autocomplete="off" />
-                            <label className="space" for="sauseSelector">Tomato Sauce</label>
-                            <br />
-
-                            <input type="radio" id="Pasta Sauce" onChange={(e) => {
-
-                            
-                                if (e.target.checked) {
-
-
-                                    setItems({ ...items, SauceSelected: e.target.id })
-
-
-                                }
-                                else if (e.target.checked === false) {
-                            
-                                    setItems({
-                                        ...items, SauceSelected: ""
-                                    })
-
-                                }
-
-                            }} name="sauseSelector" autocomplete="off" />
-                            <label className="space" for="sauseSelector">Pasta Sauce</label>
-                            <br />
-
-                            <input type="radio" className="space" id="Spaghetti Sauce" onChange={(e) => {
-
-                       
-                                if (e.target.checked) {
-
-
-                                    setItems({ ...items, SauceSelected: e.target.id })
-
-
-                                }
-                                else if (e.target.checked === false) {
-                     
-                                    setItems({
-                                        ...items, SauceSelected: ""
-                                    })
-
-                                }
-
-                            }} name="sauseSelector" autocomplete="off" />
-                            <label className="space" for="sauseSelector">Spaghetti Sauce</label>
-                            <br />
-
-
-
-                            <input type="radio" id="Barbecue Sauce" onChange={(e) => {
-
-                                if (e.target.checked) {
-
-
-                                    setItems({ ...items, SauceSelected: e.target.id })
-
-
-                                }
-                                else if (e.target.checked === false) {
                         
-                                    setItems({
-                                        ...items, SauceSelected: ""
-                                    })
-
-                                }
-
-                            }} name="sauseSelector" autocomplete="off" />
-                            <label className="space" for="sauseSelector">Barbecue Sauce</label>
-                            <br />
+                        </div>
 
 
 
-                            <input type="radio" id="Sweet Chilli Sauce" onChange={(e) => {
-
-                       
-                                if (e.target.checked) {
 
 
-                                    setItems({ ...items, SauceSelected: e.target.id })
 
 
-                                }
-                                else if (e.target.checked === false) {
-                              
-                                    setItems({
-                                        ...items, SauceSelected: ""
-                                    })
 
-                                }
 
-                            }} name="sauseSelector" autocomplete="off" />
-                            <label className="space" for="sauseSelector">Sweet Chilli Sauce</label>
+
+                        <div className="col-12" >
+                            <h5 className="drophead col-4">Sauce</h5>
+
+
+
+                            <select name="sauce" className="col-6" id="sauce" onChange={(e) => {
+
+
+
+
+                                setItems({ ...items, SauceSelected: e.target.value })
+                                
+
+
+
+                            }}>
+                                <option value="Tomato Sauce">Tomato Sauce</option>
+                                <option value="Pasta Sauce">Pasta Sauce</option>
+                                <option value="Spaghetti Sauce">Spaghetti Sauce</option>
+                                <option value="Barbecue Sauce">Barbecue Sauce</option>
+                                <option value="Sweet Chilli Sauce">Sweet Chilli Sauce</option>
+
+                            </select>
+
+
+                           
 
                         </div>
 
@@ -614,97 +440,26 @@ export default function Buildpizza(props) {
 
 
 
-                        <div className="col-4" >
+                        <div className="col-12" >
 
-                            <h4>Cheese</h4>
-
-                            <input type="radio" id="Double Cheese" name="CheeseSelector" onChange={(e) => {
-
-                         
-                                if (e.target.checked) {
+                            <h5 className="drophead col-4">Cheese</h5>
 
 
-                                    setItems({ ...items, CheeseSelected: e.target.id })
+                            <select name="cheese" className="col-6" id="cheese" onChange={(e) => {
+
+                                setItems({ ...items,  CheeseSelected: e.target.value })
+                               
 
 
-                                }
-                                else if (e.target.checked === false) {
-                             
-                                    setItems({
-                                        ...items, CheeseSelected: ""
-                                    })
+                            }}>
+                                <option value="Double Cheese">Double Cheese</option>
+                                <option value="Mexican Cheese">Mexican Cheese</option>
+                                <option value="Mozzerrila Cheese">Mozzerrila Cheese</option>
+                                <option value="Goat Cheese">Goat Cheese</option>
+                                <option value="Double Cheese">Double Cheese</option>
 
-                                }
+                            </select>
 
-                            }} autocomplete="off" />
-                            <label className="space" for="CheeseSelector">Double Cheese</label>
-                            <br />
-
-                            <input type="radio" id="Mexican Cheese" onChange={(e) => {
-
-                                if (e.target.checked) {
-
-
-                                    setItems({ ...items, CheeseSelected: e.target.id })
-
-
-                                }
-                                else if (e.target.checked === false) {
-                                 
-                                    setItems({
-                                        ...items, CheeseSelected: ""
-                                    })
-
-                                }
-
-                            }} name="CheeseSelector" autocomplete="off" />
-                            <label className="space" for="CheeseSelector">Mexican Cheese</label>
-                            <br />
-
-                            <input type="radio" className="space" id="Mozzerrila Cheese" onChange={(e) => {
-
-                                if (e.target.checked) {
-
-
-                                    setItems({ ...items, CheeseSelected: e.target.id })
-
-
-                                }
-                                else if (e.target.checked === false) {
-                                
-                                    setItems({
-                                        ...items, CheeseSelected: ""
-                                    })
-
-                                }
-
-                            }} name="CheeseSelector" autocomplete="off" />
-                            <label className="space" for="CheeseSelector">Mozzerrila Cheese</label>
-                            <br />
-
-
-
-                            <input type="radio" id="Goat Cheese" onChange={(e) => {
-
-                            
-                                if (e.target.checked) {
-
-
-                                    setItems({ ...items, CheeseSelected: e.target.id })
-
-
-                                }
-                                else if (e.target.checked === false) {
-                                
-                                    setItems({
-                                        ...items, CheeseSelected: ""
-                                    })
-
-                                }
-
-                            }} name="CheeseSelector" autocomplete="off" />
-                            <label className="space" for="CheeseSelector">Goat Cheese</label>
-                            <br />
 
 
 
@@ -713,24 +468,25 @@ export default function Buildpizza(props) {
 
 
 
+                        <div className="row cent">
 
-                        <div className="col-6" >
-                            <h3>Vegetables</h3>
+                        <div className="col-6 " >
+                            <h5>Vegetables</h5>
 
 
                             <div className="form-check">
 
                                 <input className="form-check-input" onChange={(e) => {
 
-                                 
+
                                     if (e.target.checked) {
-                                       
+
                                         let termv = items.itemsSelected.filter((dat) => {
                                             if (dat.name === e.target.id) {
                                                 return dat
                                             }
                                         })
-                                     
+
                                         setItems({ ...items, VeggSelected: [...items.VeggSelected, termv[0]] })
                                         setacess()
 
@@ -746,7 +502,7 @@ export default function Buildpizza(props) {
                                                 return dat
                                             }
                                         })
-                                     
+
 
 
                                         setItems({
@@ -772,7 +528,7 @@ export default function Buildpizza(props) {
                                                 return dat
                                             }
                                         })
-                               
+
                                         setItems({ ...items, VeggSelected: [...items.VeggSelected, termv[0]] })
                                         setacess()
 
@@ -810,7 +566,7 @@ export default function Buildpizza(props) {
 
 
                                     if (e.target.checked) {
-                                    
+
                                         let termv = items.itemsSelected.filter((dat) => {
                                             if (dat.name === e.target.id) {
                                                 return dat
@@ -826,13 +582,13 @@ export default function Buildpizza(props) {
                                     else if (e.target.checked === false) {
 
 
-                                       
+
                                         let untermv = items.itemsSelected.filter((dat) => {
                                             if (dat.name === e.target.id) {
                                                 return dat
                                             }
                                         })
-                                   
+
 
 
 
@@ -855,13 +611,13 @@ export default function Buildpizza(props) {
                                 <input className="form-check-input" name="Veg" onChange={(e) => {
 
                                     if (e.target.checked) {
-                                   
+
                                         let termv = items.itemsSelected.filter((dat) => {
                                             if (dat.name === e.target.id) {
                                                 return dat
                                             }
                                         })
-                                
+
                                         setItems({ ...items, VeggSelected: [...items.VeggSelected, termv[0]] })
 
                                         setacess()
@@ -872,13 +628,13 @@ export default function Buildpizza(props) {
                                     else if (e.target.checked === false) {
 
 
-                                     
+
                                         let untermv = items.itemsSelected.filter((dat) => {
                                             if (dat.name === e.target.id) {
                                                 return dat
                                             }
                                         })
-                                  
+
 
 
 
@@ -900,16 +656,16 @@ export default function Buildpizza(props) {
                             <div className="form-check">
                                 <input className="form-check-input" name="Veg" onChange={(e) => {
 
-                                
+
 
                                     if (e.target.checked) {
-                                  
+
                                         let termv = items.itemsSelected.filter((dat) => {
                                             if (dat.name === e.target.id) {
                                                 return dat
                                             }
                                         })
-                                   
+
                                         setItems({ ...items, VeggSelected: [...items.VeggSelected, termv[0]] })
 
                                         setacess()
@@ -920,13 +676,13 @@ export default function Buildpizza(props) {
                                     else if (e.target.checked === false) {
 
 
-                                     
+
                                         let untermv = items.itemsSelected.filter((dat) => {
                                             if (dat.name === e.target.id) {
                                                 return dat
                                             }
                                         })
-                          
+
 
 
 
@@ -947,15 +703,15 @@ export default function Buildpizza(props) {
                             <div className="form-check">
                                 <input className="form-check-input" name="Veg" onChange={(e) => {
 
-                                
+
                                     if (e.target.checked) {
-                                      
+
                                         let termv = items.itemsSelected.filter((dat) => {
                                             if (dat.name === e.target.id) {
                                                 return dat
                                             }
                                         })
-                                  
+
                                         setItems({ ...items, VeggSelected: [...items.VeggSelected, termv[0]] })
 
                                         setacess()
@@ -966,13 +722,13 @@ export default function Buildpizza(props) {
                                     else if (e.target.checked === false) {
 
 
-                                    
+
                                         let untermv = items.itemsSelected.filter((dat) => {
                                             if (dat.name === e.target.id) {
                                                 return dat
                                             }
                                         })
-                                 
+
 
 
 
@@ -997,22 +753,22 @@ export default function Buildpizza(props) {
 
 
 
-                        <div className="col-6 " >
-                            <h4> Meat</h4>
+                        <div className="col-6  " >
+                            <h5> Meat</h5>
 
                             <div className="form-check">
 
                                 <input className="form-check-input" onChange={(e) => {
 
-                               
+
                                     if (e.target.checked) {
-                                      
+
                                         let term = items.itemsSelected.filter((dat) => {
                                             if (dat.name === e.target.id) {
                                                 return dat
                                             }
                                         })
-                                  
+
 
                                         setItems({ ...items, MeatSelected: [...items.MeatSelected, term[0]] });
 
@@ -1024,13 +780,13 @@ export default function Buildpizza(props) {
                                     else if (e.target.checked === false) {
 
 
-                                   
+
                                         let unterm = items.itemsSelected.filter((dat) => {
                                             if (dat.name === e.target.id) {
                                                 return dat
                                             }
                                         })
-                        
+
                                         setItems({ ...items, MeatSelected: items.MeatSelected.filter(ele => ele.name !== unterm[0].name) })
 
 
@@ -1046,15 +802,15 @@ export default function Buildpizza(props) {
 
                                 <input className="form-check-input" onChange={(e) => {
 
-                                 
+
                                     if (e.target.checked) {
-                                 
+
                                         let term = items.itemsSelected.filter((dat) => {
                                             if (dat.name === e.target.id) {
                                                 return dat
                                             }
                                         })
-                          
+
 
                                         setItems({ ...items, MeatSelected: [...items.MeatSelected, term[0]] });
 
@@ -1066,13 +822,13 @@ export default function Buildpizza(props) {
                                     else if (e.target.checked === false) {
 
 
-                                     
+
                                         let unterm = items.itemsSelected.filter((dat) => {
                                             if (dat.name === e.target.id) {
                                                 return dat
                                             }
                                         })
-                                     
+
 
                                         setItems({ ...items, MeatSelected: items.MeatSelected.filter(ele => ele.name !== unterm[0].name) })
 
@@ -1089,15 +845,15 @@ export default function Buildpizza(props) {
                             <div className="form-check">
                                 <input className="form-check-input" onChange={(e) => {
 
-                                 
+
                                     if (e.target.checked) {
-                                
+
                                         let term = items.itemsSelected.filter((dat) => {
                                             if (dat.name === e.target.id) {
                                                 return dat
                                             }
                                         })
-                              
+
 
                                         setItems({ ...items, MeatSelected: [...items.MeatSelected, term[0]] });
 
@@ -1109,13 +865,13 @@ export default function Buildpizza(props) {
                                     else if (e.target.checked === false) {
 
 
-                                
+
                                         let unterm = items.itemsSelected.filter((dat) => {
                                             if (dat.name === e.target.id) {
                                                 return dat
                                             }
                                         })
-                               
+
 
                                         setItems({ ...items, MeatSelected: items.MeatSelected.filter(ele => ele.name !== unterm[0].name) })
 
@@ -1156,12 +912,12 @@ export default function Buildpizza(props) {
 
 
                     <div style={{ float: 'right' }} className="row">
-                        <h4>your order details</h4>
+                        <h4>Your order details</h4>
                         <ul className="list-group">
 
 
                             <li className="list-group-item lis list-group-item d-flex justify-content-between align-items-center">
-                                <p>pizza</p>
+                                <p>Pizza</p>
                                 <h6> <span className="badge badge-primary badge-pill">280</span></h6>
                             </li>
 
@@ -1228,9 +984,9 @@ export default function Buildpizza(props) {
                                         if (index >= 1) {
 
                                             sum += ele.price
-                          
+
                                         }
-                                   
+
 
 
                                     })
@@ -1248,9 +1004,9 @@ export default function Buildpizza(props) {
                                         if (index >= 3) {
 
                                             sum += ele.price
-                                        
+
                                         }
-                                     
+
 
 
                                     })
@@ -1283,9 +1039,9 @@ export default function Buildpizza(props) {
 
                                     setpricetag(finalcost)
                                     orderplace();
-                       
 
-                                    // history.push("/checkout")
+
+                                   
                                 }
                                 }
 
@@ -1307,10 +1063,11 @@ export default function Buildpizza(props) {
 
                 </div>
             </div>
+        
 
 
 
-            {/* </div> */}
+
 
         </>
     )

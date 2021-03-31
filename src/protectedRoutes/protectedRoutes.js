@@ -16,9 +16,8 @@ export default function ProtectedRoutes({ component: Component, ...rest }) {
                     <Route
                         {...rest}
                         render={(props) => {
-                            console.log(props)
-                            console.log(logincontextnew.user, logincontextnew.user.role.includes("user"), logincontextnew.user.role.includes("admin"))
-                          
+                        
+      
 
                             return <Component ></Component>
                           

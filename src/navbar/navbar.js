@@ -15,7 +15,7 @@ export default function Navbar() {
 <nav>
 
 
-<input id="check" type="checkbox">
+<input id="check" className="checking" type="checkbox">
 </input>
 <label className="checkicon" for="check">
   <SubjectIcon fontSize="large" />

@@ -97,3 +97,28 @@ h4{
     height:100vh;
     margin:0;
 }
+
+.drophead{
+    display: inline-flex;
+
+}
+.cent{
+    padding: 25px;
+    margin-left: 10px;
+}
+
+
+@media(max-width:750px){
+    
+.topp{
+    height:50vh !important;
+}
+}
+
+
+@media(max-width:380px){
+    
+    .topp{
+        height:60vh !important;
+    }
+    }

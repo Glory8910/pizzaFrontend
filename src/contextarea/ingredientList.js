@@ -124,7 +124,7 @@ let handeledelmeat=(e)=>{
     setmeat([meat.filter(e.target.value)])
 }
 
-    console.log(stock)
+
     return (
       
         <Ingredientcontext.Provider value={{stock,setstock,items,setItems,payment, setpayment,orderlist,setorderlist}}>

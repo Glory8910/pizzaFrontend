@@ -6,7 +6,7 @@ export default (state, action)=>{
  
     switch (action.type) {
       case ("SET_USER"):
-        console.log(action.user)
+    
         return {
           ...state,
           userdetails: action.user,
@@ -17,7 +17,6 @@ export default (state, action)=>{
         break;
       case ("SET_NO_USER"):
 
-        console.log(action.error)
         return { ...state, isloggedIn: false, userdetails: null,role:null }
     
         break;
